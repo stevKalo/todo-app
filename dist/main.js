@@ -116,7 +116,7 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.css */ \"./src/styles.css\");\n/* harmony import */ var _items_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./items.js */ \"./src/items.js\");\n\n\n\nconst content = document.getElementById(\"content\");\n\nlet newItem = new _items_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"](\n  \"title\",\n  \"priority\",\n  \"dueDate\",\n  \"description\",\n  \"project\",\n  false\n);\nconsole.log(newItem);\n\n\n//# sourceURL=webpack://todo-app/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.css */ \"./src/styles.css\");\n/* harmony import */ var _items_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./items.js */ \"./src/items.js\");\n\n\n\nconst content = document.getElementById(\"content\");\nconst addBtn = document.getElementById(\"add-btn\");\n\naddBtn.addEventListener(\"click\", () => {\n  let newItem = new _items_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"](\n    \"title\",\n    \"priority\",\n    \"dueDate\",\n    \"description\",\n    \"project\",\n    false\n  );\n  console.log(newItem);\n});\n\n\n//# sourceURL=webpack://todo-app/./src/index.js?");
 
 /***/ }),
 
@@ -126,7 +126,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sty
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ TodoItem)\n/* harmony export */ });\nclass TodoItem {\n  constructor(title, priority, dueDate, description, project, status) {\n    this.title = title;\n    this.priority = priority;\n    this.dueDate = dueDate;\n    this.description = description;\n    this.project = project;\n    this.status = status;\n  }\n}\n\n\n//# sourceURL=webpack://todo-app/./src/items.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ TodoItem)\n/* harmony export */ });\nclass TodoItem {\n  constructor(\n    title = \"\",\n    priority = \"Low\",\n    dueDate = \"\",\n    description = \"\",\n    project = \"\",\n    status = false\n  ) {\n    this.title = title;\n    this.priority = priority;\n    this.dueDate = dueDate;\n    this.description = description;\n    this.project = project;\n    this.status = status;\n  }\n\n  changeStatus() {\n    this.status = !this.status;\n  }\n\n  changeProp(prop, value) {\n    this[prop] = value;\n  }\n}\n\n\n//# sourceURL=webpack://todo-app/./src/items.js?");
 
 /***/ })
 
