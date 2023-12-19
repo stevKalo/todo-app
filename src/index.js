@@ -1,11 +1,13 @@
 import "./styles.css";
 import TodoItem from "./items.js";
+import createItem from "./dom.js";
 
 // Global Variables
 const content = document.getElementById("content");
 const addBtn = document.getElementById("add-btn");
 const dialog = document.getElementById("todo-modal");
 const saveBtn = document.getElementById("save-btn");
+const taskList = document.getElementById("tasks");
 
 // Todo List Array
 let todoList = [];
@@ -41,7 +43,7 @@ saveBtn.addEventListener("click", () => {
     false
   );
   todoList.push(todoItem);
-  console.log(todoItem);
   dialog.close();
   modalClear();
+  createItem(todoItem, taskList);
 });
