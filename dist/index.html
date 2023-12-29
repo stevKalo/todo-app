@@ -4,24 +4,61 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ToDo List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
   <script defer src="main.js"></script></head>
   <body>
     <div id="content">
-      <header>Logo Placeholder</header>
-      <div class="side-nav">
+      <header>ToDo</header>
+      <nav class="side-nav">
         <ul id="button-list">
-          <li>
-            <button id="add-btn">Add</button>
-          </li>
-          <li><button id="home">Home</button></li>
-          <li><button id="important">Important</button></li>
-          <li><button id="urgent">Urgent</button></li>
+          <li><button class="nav-btn" id="add-btn">Add</button></li>
+          <li><button class="spacer"></button></li>
+          <li><button class="nav-btn" id="home">Home</button></li>
+          <li><button class="nav-btn" id="important">Important</button></li>
+          <li><button class="nav-btn" id="urgent">Urgent</button></li>
         </ul>
-      </div>
+      </nav>
       <div class="main">
         <ul id="tasks"></ul>
       </div>
     </div>
-    <dialog></dialog>
+    <dialog id="todo-modal">
+      <form>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          placeholder="Title"
+          required
+        />
+        <label for="due-date" id="due-lable">
+          Due Date:<input type="date" id="due-date" name="due-date"
+        /></label>
+        <label for="project" id="project-label"
+          >Project:
+          <input type="text" id="project" name="project" />
+        </label>
+        <textarea
+          id="notes"
+          name="description"
+          placeholder="Notes"
+          rows="3"
+        ></textarea>
+        <label id="priority"
+          >Priority:
+          <select id="priority-select" name="priority">
+            <option value="default">---</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+        </label>
+        <button type="button" id="save-btn">Save</button>
+      </form>
+    </dialog>
   </body>
 </html>
