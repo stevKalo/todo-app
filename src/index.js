@@ -99,11 +99,15 @@ saveBtn.addEventListener("click", () => {
 projectNav.addEventListener("change", (event) => {
   const selectedProject = event.target.value;
   todoClear();
-  todoList.map((item) => {
-    // check if project matches projectNav value
-    // if yes, create element and push to dom
-    if (item.project == selectedProject) {
+  if (selectedProject != "default") {
+    todoList.map((item) => {
+      if (item.project == selectedProject) {
+        createItem(item, taskList);
+      }
+    });
+  } else {
+    todoList.map((item) => {
       createItem(item, taskList);
-    }
-  });
+    });
+  }
 });
