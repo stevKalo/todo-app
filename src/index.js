@@ -5,6 +5,7 @@ import { createItem, createOption, createInfo } from "./dom.js";
 // Global Variables
 const content = document.getElementById("content");
 const addBtn = document.getElementById("add-btn");
+const importantBtn = document.getElementById("important-btn");
 const dialog = document.getElementById("todo-modal");
 const saveBtn = document.getElementById("save-btn");
 const taskList = document.getElementById("tasks");
@@ -110,4 +111,13 @@ projectNav.addEventListener("change", (event) => {
       createItem(item, taskList);
     });
   }
+});
+
+importantBtn.addEventListener("click", () => {
+  todoClear();
+  todoList.map((item) => {
+    if (item.priority == "high") {
+      createItem(item, taskList);
+    }
+  });
 });
