@@ -121,7 +121,7 @@ button.nav-btn:hover {
 .item {
   display: grid;
   align-items: center;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   background-color: var(--accent);
   padding: 10px;
   border-radius: 10px;
@@ -131,6 +131,14 @@ button.nav-btn:hover {
 .item:hover,
 .item:focus {
   transform: scale(1.02);
+}
+
+.item-title {
+  text-align: start;
+}
+
+.item-date {
+  text-align: end;
 }
 
 dialog {
@@ -217,4 +225,18 @@ button#save-btn:hover {
 .priority-high {
   background-color: var(--high);
   color: var(--background);
+}
+
+#close-btn {
+  background-color: var(--secondary);
+  color: var(--background);
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 0;
+  transition: 0.3s;
+}
+
+#close-btn:hover {
+  transform: scale(1.02);
+  background-color: var(--primary);
 }

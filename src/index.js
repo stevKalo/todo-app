@@ -1,6 +1,6 @@
 import "./styles.css";
 import TodoItem from "./items.js";
-import { createItem, createOption } from "./dom.js";
+import { createItem, createOption, createInfo } from "./dom.js";
 
 // Global Variables
 const content = document.getElementById("content");
@@ -31,10 +31,10 @@ function modalClear() {
 // On Load Functions
 window.onload = () => {
   const todoItem = new TodoItem(
-    "Sample Item",
+    "This is an Urgent Task",
     "high",
     "2020-07-01",
-    "This is a test",
+    "This is a test description for my sample todo object",
     "Test Project",
     false
   );
