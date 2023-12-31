@@ -1,6 +1,6 @@
 import "./styles.css";
 import TodoItem from "./items.js";
-import createItem from "./dom.js";
+import { createItem, createOption } from "./dom.js";
 
 // Global Variables
 const content = document.getElementById("content");
@@ -8,7 +8,6 @@ const addBtn = document.getElementById("add-btn");
 const dialog = document.getElementById("todo-modal");
 const saveBtn = document.getElementById("save-btn");
 const taskList = document.getElementById("tasks");
-const projectOption = document.getElementById("project-options");
 
 // Todo List Array
 let todoList = [];
@@ -17,9 +16,7 @@ let projectList = [];
 
 function updateProjectList(item) {
   projectList.push(item);
-  const newOption = document.createElement("option");
-  newOption.value = item;
-  projectOption.appendChild(newOption);
+  createOption(item);
 }
 
 // Gloabl Functions

@@ -36,6 +36,7 @@ select {
   --accent: #cce3de;
   --background: #f6fff8;
   --foreground: #eaf4f4;
+  --high: #ce5858;
   color: var(--primary);
   background-color: var(--background);
   border-color: var(--secondary);
@@ -91,7 +92,7 @@ button.nav-btn {
   border-radius: 10px;
   transition: 0.3s;
 }
-button.spacer {
+div.spacer {
   background-color: var(--primary);
   border-radius: 5px;
 }
@@ -124,6 +125,12 @@ button.nav-btn:hover {
   background-color: var(--accent);
   padding: 10px;
   border-radius: 10px;
+  transition: 0.5s;
+}
+
+.item:hover,
+.item:focus {
+  transform: scale(1.02);
 }
 
 dialog {
@@ -205,4 +212,9 @@ button#save-btn:hover {
 *::placeholder {
   color: var(--secondary);
   opacity: 0.7;
+}
+
+.priority-high {
+  background-color: var(--high);
+  color: var(--background);
 }
