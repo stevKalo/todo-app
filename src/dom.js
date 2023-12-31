@@ -69,7 +69,10 @@ export function createItem(obj, parent) {
 
 export function createOption(item) {
   const projectOption = document.getElementById("project-options");
+  const projectFilter = document.getElementById("nav-project");
   const newOption = document.createElement("option");
   newOption.value = item;
   projectOption.appendChild(newOption);
+  newOption.textContent = item;
+  projectFilter.appendChild(newOption);
 }

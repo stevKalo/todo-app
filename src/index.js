@@ -8,10 +8,12 @@ const addBtn = document.getElementById("add-btn");
 const dialog = document.getElementById("todo-modal");
 const saveBtn = document.getElementById("save-btn");
 const taskList = document.getElementById("tasks");
+const projectNav = document.getElementById("nav-project");
 
 // Todo List Array
 let todoList = [];
 
+// Project List Array
 let projectList = [];
 
 function updateProjectList(item) {
@@ -19,7 +21,7 @@ function updateProjectList(item) {
   createOption(item);
 }
 
-// Gloabl Functions
+// Clear Functions
 function modalClear() {
   document.getElementById("title").value = "";
   document.getElementById("priority").value = "";
@@ -28,19 +30,37 @@ function modalClear() {
   document.getElementById("project").value = "";
 }
 
+function todoClear() {
+  while (taskList.firstChild) {
+    taskList.removeChild(taskList.firstChild);
+  }
+}
+
 // On Load Functions
 window.onload = () => {
-  const todoItem = new TodoItem(
+  const urgentSample = new TodoItem(
     "This is an Urgent Task",
     "high",
     "2020-07-01",
-    "This is a test description for my sample todo object",
+    "This is a test description for my urgent todo object",
     "Test Project",
     false
   );
   updateProjectList("Test Project");
-  todoList.push(todoItem);
-  createItem(todoItem, taskList);
+  todoList.push(urgentSample);
+  createItem(urgentSample, taskList);
+
+  const normalSample = new TodoItem(
+    "This is a Sample Task",
+    "",
+    "2020-07-02",
+    "This the another description of  Todo item",
+    "Sample Project",
+    false
+  );
+  updateProjectList("Sample Project");
+  todoList.push(normalSample);
+  createItem(normalSample, taskList);
 };
 
 // Open Modal
@@ -73,4 +93,17 @@ saveBtn.addEventListener("click", () => {
   dialog.close();
   modalClear();
   createItem(todoItem, taskList);
+});
+
+// Project Filtering
+projectNav.addEventListener("change", (event) => {
+  const selectedProject = event.target.value;
+  todoClear();
+  todoList.map((item) => {
+    // check if project matches projectNav value
+    // if yes, create element and push to dom
+    if (item.project == selectedProject) {
+      createItem(item, taskList);
+    }
+  });
 });
