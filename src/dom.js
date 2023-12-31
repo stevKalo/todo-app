@@ -67,12 +67,14 @@ export function createItem(obj, parent) {
   item.appendChild(itemDate);
 }
 
-export function createOption(item) {
+export function createOption(project) {
   const projectOption = document.getElementById("project-options");
   const projectFilter = document.getElementById("nav-project");
-  const newOption = document.createElement("option");
-  newOption.value = item;
-  projectOption.appendChild(newOption);
-  newOption.textContent = item;
-  projectFilter.appendChild(newOption);
+  const autoOption = document.createElement("option");
+  const filterOption = document.createElement("option");
+  autoOption.value = project;
+  filterOption.value = project;
+  filterOption.textContent = project;
+  projectOption.appendChild(autoOption);
+  projectFilter.appendChild(filterOption);
 }

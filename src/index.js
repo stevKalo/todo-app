@@ -9,6 +9,7 @@ const homeBtn = document.getElementById("home-btn");
 const importantBtn = document.getElementById("important-btn");
 const dialog = document.getElementById("todo-modal");
 const saveBtn = document.getElementById("save-btn");
+const closeBtn = document.getElementById("modal-close");
 const taskList = document.getElementById("tasks");
 const projectNav = document.getElementById("nav-project");
 
@@ -70,7 +71,9 @@ addBtn.addEventListener("click", () => {
   dialog.showModal();
 });
 
-// Make Todo Item
+// Modal Buttons
+
+// Save Item
 saveBtn.addEventListener("click", () => {
   const title = document.getElementById("title").value;
   const priority = document.getElementById("priority").value;
@@ -95,6 +98,12 @@ saveBtn.addEventListener("click", () => {
   dialog.close();
   modalClear();
   createItem(todoItem, taskList);
+});
+
+// Close Modal
+closeBtn.addEventListener("click", () => {
+  modalClear();
+  dialog.close();
 });
 
 // Project Filtering

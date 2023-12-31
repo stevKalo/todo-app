@@ -41,9 +41,7 @@
             placeholder="Title"
             required
           />
-          <label for="due-date" id="due-label">
-            Due Date:<input type="date" id="due-date" name="due-date"
-          /></label>
+          <input type="date" id="due-date" name="due-date" />
           <label for="project" id="project-label"
             >Project:
             <input
@@ -68,7 +66,10 @@
               <option value="high">High</option>
             </select>
           </label>
-          <button type="button" id="save-btn">Save</button>
+          <button type="button" class="modal-btn" id="save-btn">Save</button>
+          <button type="button" class="modal-btn" id="modal-close">
+            Close
+          </button>
         </form>
       </div>
     </dialog>
