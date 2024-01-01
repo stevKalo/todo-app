@@ -14,10 +14,32 @@ const taskList = document.getElementById("tasks");
 const projectNav = document.getElementById("nav-project");
 
 // Todo List Array
-let todoList = [];
+let todoList;
+let defaultList = [
+  {
+    description: "This is a test description for my Urgent object",
+    dueDate: "2020-07-01",
+    priority: "high",
+    project: "Urgent Project",
+    status: false,
+    title: "Urgent Task",
+  },
+  {
+    description: "This is a test description for my Sample object",
+    dueDate: "2020-07-02",
+    priority: "",
+    project: "Test Project",
+    status: false,
+    title: "Sample Task",
+  },
+];
 
 // Project List Array
 let projectList = [];
+
+function updateLocalStroage() {
+  localStorage.setItem("todoList", `${JSON.stringify(todoList)}`);
+}
 
 function updateProjectList(item) {
   projectList.push(item);
@@ -41,29 +63,20 @@ function todoClear() {
 
 // On Load Functions
 window.onload = () => {
-  const urgentSample = new TodoItem(
-    "This is an Urgent Task",
-    "high",
-    "2020-07-01",
-    "This is a test description for my urgent todo object",
-    "Test Project",
-    false
-  );
-  updateProjectList("Test Project");
-  todoList.push(urgentSample);
-  createItem(urgentSample, taskList);
-
-  const normalSample = new TodoItem(
-    "This is a Sample Task",
-    "",
-    "2020-07-02",
-    "This the another description of  Todo item",
-    "Sample Project",
-    false
-  );
-  updateProjectList("Sample Project");
-  todoList.push(normalSample);
-  createItem(normalSample, taskList);
+  // if local storage has todoList
+  // parse todoList from localStorage
+  // else set todoList to default
+  if (!window.localStorage["todoList"]) {
+    todoList = defaultList;
+    console.log(todoList);
+    localStorage.setItem("todoList", `${JSON.stringify(todoList)}`);
+  } else {
+    todoList = JSON.parse(localStorage.getItem("todoList"));
+  }
+  todoList.map((item) => {
+    createItem(item, taskList);
+    updateProjectList(item.project);
+  });
 };
 
 // Open Modal
@@ -98,6 +111,7 @@ saveBtn.addEventListener("click", () => {
   dialog.close();
   modalClear();
   createItem(todoItem, taskList);
+  updateLocalStroage();
 });
 
 // Close Modal

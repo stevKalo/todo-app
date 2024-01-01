@@ -102,6 +102,10 @@ button.nav-btn:hover {
   background-color: var(--primary);
 }
 
+#nav-project {
+  text-align: center;
+}
+
 .main {
   grid-column: 2 / 3;
   grid-row: 2 / 3;
