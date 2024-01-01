@@ -42,8 +42,10 @@ function updateLocalStroage() {
 }
 
 function updateProjectList(item) {
-  projectList.push(item);
-  createOption(item);
+  if (!projectList.includes(item)) {
+    projectList.push(item);
+    createOption(item);
+  }
 }
 
 // Clear Functions
