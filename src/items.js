@@ -1,10 +1,10 @@
 export default class TodoItem {
   constructor(
-    title = "",
-    priority = "",
-    dueDate = "",
-    description = "",
-    project = "",
+    title = '',
+    priority = '',
+    dueDate = '',
+    description = '',
+    project = '',
     status = false
   ) {
     this.title = title;
@@ -16,7 +16,7 @@ export default class TodoItem {
   }
 
   changeStatus() {
-    this.status = !this.status;
+    this.status === false ? (this.status = true) : null;
   }
 
   changeProp(prop, value) {
